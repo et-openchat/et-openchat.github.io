@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情報提供範囲のご案内 | ETオープンチャット</title>
+    <style>
+        :root {
+            --primary-color: #0076a3;
+            --bg-color: #f4f7f9;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem 1.5rem 1rem;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 1.8rem;
+        }
+
+        /* 上部のお問い合わせボタン */
+        .header-nav {
+            margin-top: 0.5rem;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            background-color: #fff;
+            color: var(--primary-color);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .contact-btn:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* BOX（カード）のスタイル */
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .card-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e1e8ed;
+        }
+
+        /* タップ/ホバー時のエフェクト（有効なリンクのみ） */
+        a.card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 準備中のスタイル */
+        .card.disabled {
+            background-color: #eaeaea;
+            border-color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .card.disabled h2 {
+            color: #666;
+            border-bottom-color: #666;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            flex-grow: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #e0f2fe;
+            color: #0369a1;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            align-self: flex-start;
+        }
+
+        .badge.alert {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1rem;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>地震速報/気象情報/交通情報 共有オープンチャット</h1>
+        <div class="header-nav">
+            <a href="contact" class="contact-btn">✉ お問い合わせはこちら</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <p>当オープンチャットで配信・共有している情報の提供範囲に関するご案内です。</p>
+        </div>
+
+        <div class="card-container">
+            <a href="交通情報提供範囲.pdf" class="card" target="_blank" rel="noopener noreferrer">
+                <span class="badge">PDFで開く</span>
+                <h2>交通情報提供範囲について</h2>
+                <p>交通情報提供範囲についてはこちらのPDFにまとめてます。</p>
+            </a>
+
+            <div class="card disabled">
+                <span class="badge alert">準備中</span>
+                <h2>気象情報提供範囲について</h2>
+                <p>現在、気象情報提供範囲については作成中です。暫くお待ちください。</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>
+            <a href="terms">利用規約</a> | 
+            <a href="privacy">プライバシーポリシー</a> | 
+            <a href="contact">お問い合わせ</a>
+        </p>
+        <p>&copy; 2026 地震速報/気象情報/交通情報 共有オープンチャット</p>
+    </footer>
+
+</body>
+</html>
