@@ -3,116 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ | 地震速報・気象情報・交通情報　共有オープンチャット</title>
+  <title>お問い合わせ | 地震速報/気象情報/交通情報　共有オープンチャット</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .form-group {
-      margin-bottom: 24px;
-    }
-    .form-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-    .required-badge {
-      background-color: #e53935;
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 6px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      transition: border-color 0.3s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary-color);
-    }
-    
-    /* チェックボックス用のスタイル */
-    .checkbox-group {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      cursor: pointer;
-      user-select: none;
-      margin-top: 8px;
-    }
-    .checkbox-group input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-      accent-color: var(--primary-color);
-    }
-    .checkbox-text {
-      font-size: 0.95rem;
-      line-height: 1.4;
-    }
-    .checkbox-text a {
-      color: var(--primary-color);
-      text-decoration: underline;
-    }
-
-    .submit-btn {
-      display: block;
-      width: 100%;
-      background-color: var(--primary-color);
-      color: #fff;
-      border: none;
-      padding: 16px;
-      font-size: 1.05rem;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-      margin-top: 30px;
-    }
-    .submit-btn:hover {
-      background-color: var(--primary-hover);
-    }
-    .submit-btn:active {
-      transform: scale(0.99);
-    }
-    .submit-btn:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
-    }
-
-    #success-message {
-      display: none;
-      background-color: #e8f5e9;
-      border: 1px solid #c8e6c9;
-      color: #2e7d32;
-      padding: 30px 20px;
-      border-radius: 6px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-weight: bold;
-      animation: fadeIn 0.5s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+  <link rel="stylesheet" href="contact.css">
 </head>
 <body>
 
   <header>
     <div class="header-container">
-      <div class="site-title">地震速報・気象情報・交通情報　共有オープンチャット</div>
+      <div class="site-title">地震速報/気象情報/交通情報　共有オープンチャット</div>
       <nav>
         <ul>
           <li><a href="index">ホーム</a></li>
@@ -124,7 +23,7 @@
 
   <main style="max-width: 650px;">
     <h1 class="page-title">お問い合わせ</h1>
-    <p class="lead-text">情報提供範囲に関するお問い合わせ、ご質問やご要望は以下のフォームより送信してください。<br>その他の問い合わせは、公式サイトでお願いいたします。</p>
+    <p class="lead-text">情報提供範囲に関するお問い合わせ、その他ご質問やご要望は以下のフォームより送信してください。</p>
 
     <div id="success-message">
       <h2>送信が完了しました</h2>
@@ -135,13 +34,13 @@
       
       <div class="form-group">
         <label for="name">お名前<span class="required-badge">必須</span></label>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">オープンチャット内でのお名前を記入してください</p>
+        <p class="form-help">オープンチャット内でのお名前を記入してください</p>
         <input type="text" id="name" name="entry.1214407863" required placeholder="例：お名前・ニックネーム">
       </div>
 
       <div class="form-group">
         <label for="email">メールアドレス<span class="required-badge">必須</span></label>
-        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">問い合わせの返答にて利用します</p>
+        <p class="form-help">問い合わせの返答にて利用します</p>
         <input type="email" id="email" name="entry.1053720767" required placeholder="例：example@mail.com">
       </div>
 
@@ -186,43 +85,7 @@
     </div>
   </footer>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const emailInput = document.getElementById('email');
-    const successMessage = document.getElementById('success-message');
-    const submitButton = document.getElementById('submit-button');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // メールアドレスの形式チェック（正規表現）
-      const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-      if (!emailPattern.test(emailInput.value)) {
-        alert('有効なメールアドレスの形式で入力してください。');
-        emailInput.focus();
-        return;
-      }
-
-      submitButton.disabled = true;
-      submitButton.innerText = '送信中...';
-
-      const formData = new FormData(form);
-      
-      fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        mode: 'no-cors'
-      }).then(() => {
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }).catch(error => {
-        alert('送信に失敗しました。お手数ですが、時間をおいて再度お試しください。');
-        submitButton.disabled = false;
-        submitButton.innerText = '送信する';
-      });
-    });
-  </script>
+  <script src="contact.js"></script>
 
 </body>
 </html>
